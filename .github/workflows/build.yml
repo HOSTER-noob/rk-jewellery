@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
@@ -24,7 +27,24 @@ jobs:
           gradle-version: '8.7'
 
       - name: Build debug APK
-        run: gradle :app:assembleDebug --no-daemon --stacktrace
+        shell: bash
+        run: |
+          set -o pipefail
+          gradle :app:assembleDebug --no-daemon --stacktrace 2>&1 | tee build_full.log
+
+      - name: Publish error log (on failure)
+        if: failure()
+        shell: bash
+        run: |
+          grep -aE "^e: |error:|Caused by|What went wrong|FAILURE" build_full.log | head -120 > errors.txt || true
+          tail -40 build_full.log >> errors.txt || true
+          echo "===== BUILD ERRORS ====="
+          cat errors.txt
+          git config user.name "ci-bot"
+          git config user.email "ci-bot@users.noreply.github.com"
+          git add errors.txt
+          git commit -m "CI: build error log [skip ci]" || echo "nothing to commit"
+          git push || echo "push failed"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4

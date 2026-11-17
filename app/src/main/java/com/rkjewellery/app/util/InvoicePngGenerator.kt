@@ -19,11 +19,11 @@ import com.rkjewellery.app.data.local.entity.InvoiceItem
 object InvoicePngGenerator {
 
     // Template colours (deep red ink on warm paper, per the reference)
-    private const val PAPER = 0xFFF7F3EC.toInt()
-    private const val ACCENT = 0xFF8A2A2A.toInt()
-    private const val INK = 0xFF26221D.toInt()
-    private const val MUTED = 0xFF6E675C.toInt()
-    private const val RULE = 0xFF2B2620.toInt()
+    private val PAPER = 0xFFF7F3EC.toInt()
+    private val ACCENT = 0xFF8A2A2A.toInt()
+    private val INK = 0xFF26221D.toInt()
+    private val MUTED = 0xFF6E675C.toInt()
+    private val RULE = 0xFF2B2620.toInt()
 
     private const val W = 1080
     private const val M = 72            // page margin
