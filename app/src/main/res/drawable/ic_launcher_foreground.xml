@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- RK monogram inside a gold diamond -->
+    <path
+        android:pathData="M54,22 L82,54 L54,86 L26,54 Z"
+        android:fillColor="#C89B3C"/>
+    <path
+        android:pathData="M54,30 L76,54 L54,78 L32,54 Z"
+        android:fillColor="#1B1A17"/>
+    <path
+        android:pathData="M45,42 L47,42 L53,52 L59,42 L61,42 L54.6,52.6 L62,66 L60,66 L53.5,55 L47,66 L45,66 L52.4,52.6 Z"
+        android:fillColor="#FFFFFF"/>
+    <path
+        android:pathData="M62,54 L62,66 L60.4,66 L60.4,54.6 Z"
+        android:fillColor="#FFFFFF"/>
+    <path
+        android:pathData="M44.8,41 L61,41 L61,43 L44.8,43 Z M44.8,65 L61,65 L61,67 L44.8,67 Z"
+        android:fillColor="#C89B3C"/>
+</vector>
