@@ -30,7 +30,7 @@ fun MemberDetailScreen(
     vm: KhataViewModel = viewModel(factory = VMFactory(LocalContext.current.applicationContext as RKApp))
 ) {
     LaunchedEffect(memberId) { vm.load(memberId) }
-    val member by vm.currentMember.collectAsState()
+    val member by vm.currentMember.collectAsState(initial = null)
     val pending by vm.memberPending.collectAsState()
     val txns by vm.memberTxns.collectAsState(initial = emptyList())
     var showAdd by remember { mutableStateOf(false) }
