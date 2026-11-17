@@ -61,7 +61,10 @@ fun InvoiceCreateScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp)
         ) {
-            RKTopBar(if (type == InvoiceType.SALE) "New Sale Bill" else "New Purchase Bill") { nav.popBackStack() }
+            RKTopBar(
+                title = if (type == InvoiceType.SALE) "New Sale Bill" else "New Purchase Bill",
+                onBack = { nav.popBackStack() }
+            )
             Text(invoiceNo, style = MaterialTheme.typography.labelMedium, color = TextMuted)
             Spacer(Modifier.height(12.dp))
 

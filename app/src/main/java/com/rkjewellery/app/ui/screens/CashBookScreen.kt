@@ -35,7 +35,7 @@ fun CashBookScreen(
 
     Scaffold(containerColor = Background) { pad ->
         Column(Modifier.padding(pad)) {
-            RKTopBar("Cash Book") { nav.popBackStack() }
+            RKTopBar(title = "Cash Book", onBack = { nav.popBackStack() })
             Column(
                 Modifier.padding(horizontal = 20.dp).fillMaxWidth()
                     .background(Ink, RoundedCornerShape(24.dp)).padding(20.dp)

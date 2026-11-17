@@ -59,7 +59,7 @@ fun InvoicePreviewScreen(
 
     Scaffold(containerColor = Background) { pad ->
         Column(Modifier.padding(pad).verticalScroll(rememberScrollState()).padding(horizontal = 20.dp)) {
-            RKTopBar("Bill Preview") { nav.popBackStack() }
+            RKTopBar(title = "Bill Preview", onBack = { nav.popBackStack() })
 
             bitmap?.let { bmp ->
                 Card(shape = RoundedCornerShape(24.dp), colors = CardDefaults.cardColors(containerColor = SurfaceWhite)) {

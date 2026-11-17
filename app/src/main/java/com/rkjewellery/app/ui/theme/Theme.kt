@@ -1,19 +1,16 @@
 package com.rkjewellery.app.ui.theme
 
-import android.app.Activity
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.view.WindowCompat
 
 private val LightColors = lightColorScheme(
     primary = Ink,
@@ -33,11 +30,11 @@ private val LightColors = lightColorScheme(
 )
 
 private val RKShapes = Shapes(
-    extraSmall = 8.dp,
-    small = 14.dp,
-    medium = 20.dp,
-    large = 26.dp,
-    extraLarge = 32.dp
+    extraSmall = RoundedCornerShape(8.dp),
+    small = RoundedCornerShape(14.dp),
+    medium = RoundedCornerShape(20.dp),
+    large = RoundedCornerShape(26.dp),
+    extraLarge = RoundedCornerShape(32.dp)
 )
 
 private val RKTypography = Typography(
@@ -57,11 +54,8 @@ private val RKTypography = Typography(
 
 @Composable
 fun RKJewelleryTheme(content: @Composable () -> Unit) {
-    val context = LocalContext.current
-    // Light theme is the identity of the app (reference design); force light chrome.
-    val window = (context as? Activity)?.window
-    if (window != null) WindowCompat.getDecorView(window).isAppearanceLightStatusBars = true
-
+    // Light theme is the identity of the app (reference design);
+    // light status bar is handled by enableEdgeToEdge() in MainActivity.
     MaterialTheme(
         colorScheme = LightColors,
         typography = RKTypography,

@@ -24,6 +24,7 @@ import com.rkjewellery.app.ui.viewmodels.InvoiceViewModel
 import com.rkjewellery.app.ui.viewmodels.VMFactory
 import com.rkjewellery.app.util.FormatUtils
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InvoiceListScreen(nav: NavHostController, vm: InvoiceViewModel = viewModel(factory = VMFactory(LocalContext.current.applicationContext as RKApp))) {
     var filter by remember { mutableStateOf(InvoiceType.SALE) }

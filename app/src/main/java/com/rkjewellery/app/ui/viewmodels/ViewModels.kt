@@ -42,6 +42,7 @@ class DashboardViewModel(app: RKApp) : ViewModel() {
 
 // ---------- Girvi ----------
 class GirviViewModel(app: RKApp) : ViewModel() {
+    private val db = app.db
     private val repo = app.girviRepo
     val active = repo.activeGirvis()
     val all = repo.allGirvis()
@@ -53,7 +54,7 @@ class GirviViewModel(app: RKApp) : ViewModel() {
     val currentPayments = _current.mapNotNull { it?.id }.flatMapLatest { repo.payments(it) }
 
     fun load(id: Long) {
-        viewModelScope.launch { _current.value = app.db.girviDao().getById(id) }
+        viewModelScope.launch { _current.value = db.girviDao().getById(id) }
     }
 
     suspend fun nextTicket(): String = repo.nextTicketNo()
@@ -66,7 +67,7 @@ class GirviViewModel(app: RKApp) : ViewModel() {
         val id = _current.value?.id ?: return
         viewModelScope.launch {
             repo.addPayment(id, amountPaise, note)
-            _current.value = app.db.girviDao().getById(id)
+            _current.value = db.girviDao().getById(id)
             onDone()
         }
     }
@@ -75,7 +76,7 @@ class GirviViewModel(app: RKApp) : ViewModel() {
         val id = _current.value?.id ?: return
         viewModelScope.launch {
             repo.releaseGirvi(id, finalPaise, note)
-            _current.value = app.db.girviDao().getById(id)
+            _current.value = db.girviDao().getById(id)
             onDone()
         }
     }
@@ -150,17 +151,19 @@ class InvoiceViewModel(app: RKApp) : ViewModel() {
 
 // ---------- Stock ----------
 class StockViewModel(app: RKApp) : ViewModel() {
+    private val db = app.db
+    private val ratesRepo = RateRepository(app.db)
     private val bullionRepo = BullionRepository(app.db)
-    val goldStock = app.db.invoiceDao().observeStockByPurity(MetalType.GOLD.name)
-    val silverStock = app.db.invoiceDao().observeStockByPurity(MetalType.SILVER.name)
+    val goldStock = db.invoiceDao().observeStockByPurity(MetalType.GOLD.name)
+    val silverStock = db.invoiceDao().observeStockByPurity(MetalType.SILVER.name)
     val bullion = bullionRepo.all()
-    val rates = app.rateRepo.all()
-    val latestRate = app.rateRepo.latest()
-    val cash = app.db.cashLedgerDao().observeBalance()
+    val rates = ratesRepo.all()
+    val latestRate = ratesRepo.latest()
+    val cash = db.cashLedgerDao().observeBalance()
 
     fun saveRate(goldPerGramPaise: Long, silverPerGramPaise: Long, notes: String = "") {
         viewModelScope.launch {
-            app.rateRepo.save(
+            ratesRepo.save(
                 MetalRate(
                     goldPerGramPaise = goldPerGramPaise,
                     silverPerGramPaise = silverPerGramPaise,
@@ -182,7 +185,7 @@ class KhataViewModel(app: RKApp) : ViewModel() {
     val totalPendingCash = repo.totalPendingCash()
 
     private val _memberId = MutableStateFlow(0L)
-    val currentMember: StateFlow<com.rkjewellery.app.data.local.entity.CreditMember?> =
+    val currentMember: Flow<com.rkjewellery.app.data.local.entity.CreditMember?> =
         _memberId.flatMapLatest { id -> if (id == 0L) flowOf(null) else repo.member(id) }
     val memberTxns: Flow<List<CreditTransaction>> =
         _memberId.flatMapLatest { id -> if (id == 0L) flowOf(emptyList()) else repo.txns(id) }

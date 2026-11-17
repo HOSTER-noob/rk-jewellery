@@ -42,7 +42,7 @@ fun MemberDetailScreen(
 
     Scaffold(containerColor = Background) { pad ->
         Column(Modifier.padding(pad).verticalScroll(rememberScrollState()).padding(horizontal = 20.dp)) {
-            RKTopBar("Khata Ledger") { nav.popBackStack() }
+            RKTopBar(title = "Khata Ledger", onBack = { nav.popBackStack() })
 
             Column(Modifier.fillMaxWidth().background(Ink, RoundedCornerShape(26.dp)).padding(22.dp)) {
                 Text(m.name, style = MaterialTheme.typography.headlineSmall, color = TextOnInk)

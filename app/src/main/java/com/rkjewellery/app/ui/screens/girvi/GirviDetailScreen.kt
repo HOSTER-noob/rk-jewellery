@@ -47,7 +47,7 @@ fun GirviDetailScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp)
         ) {
-            RKTopBar("Girvi ${e.ticketNo}") { nav.popBackStack() }
+            RKTopBar(title = "Girvi ${e.ticketNo}", onBack = { nav.popBackStack() })
             Spacer(Modifier.height(8.dp))
 
             // Status banner
