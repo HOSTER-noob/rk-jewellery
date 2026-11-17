@@ -1,24 +1,5 @@
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/CashBookScreen.kt:38:22 No value passed for parameter 'onBack'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/DashboardScreen.kt:10:60 Unresolved reference 'ArrowOutward'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/DashboardScreen.kt:227:40 Unresolved reference 'ArrowOutward'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/girvi/GirviDetailScreen.kt:50:22 No value passed for parameter 'onBack'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/invoice/InvoiceCreateScreen.kt:64:22 No value passed for parameter 'onBack'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/invoice/InvoiceListScreen.kt:80:9 This material API is experimental and is likely to change or to be removed in the future.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/invoice/InvoicePreviewScreen.kt:62:22 No value passed for parameter 'onBack'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/khata/MemberDetailScreen.kt:45:22 No value passed for parameter 'onBack'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/theme/Theme.kt:36:18 Argument type mismatch: actual type is 'androidx.compose.ui.unit.Dp', but 'androidx.compose.foundation.shape.CornerBasedShape' was expected.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/theme/Theme.kt:37:13 Argument type mismatch: actual type is 'androidx.compose.ui.unit.Dp', but 'androidx.compose.foundation.shape.CornerBasedShape' was expected.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/theme/Theme.kt:38:14 Argument type mismatch: actual type is 'androidx.compose.ui.unit.Dp', but 'androidx.compose.foundation.shape.CornerBasedShape' was expected.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/theme/Theme.kt:39:13 Argument type mismatch: actual type is 'androidx.compose.ui.unit.Dp', but 'androidx.compose.foundation.shape.CornerBasedShape' was expected.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/theme/Theme.kt:40:18 Argument type mismatch: actual type is 'androidx.compose.ui.unit.Dp', but 'androidx.compose.foundation.shape.CornerBasedShape' was expected.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/theme/Theme.kt:63:38 Unresolved reference 'getDecorView'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/viewmodels/ViewModels.kt:56:50 Unresolved reference 'app'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/viewmodels/ViewModels.kt:69:30 Unresolved reference 'app'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/viewmodels/ViewModels.kt:78:30 Unresolved reference 'app'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/viewmodels/ViewModels.kt:163:13 Unresolved reference 'app'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/viewmodels/ViewModels.kt:186:9 Initializer type mismatch: expected 'kotlinx.coroutines.flow.StateFlow<com.rkjewellery.app.data.local.entity.CreditMember?>', actual 'kotlinx.coroutines.flow.Flow<ERROR CLASS: Cannot infer argument for type parameter R>'.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/viewmodels/ViewModels.kt:186:9 Type mismatch: inferred type is 'kotlinx.coroutines.flow.Flow<R>', but 'kotlinx.coroutines.flow.StateFlow<com.rkjewellery.app.data.local.entity.CreditMember?>' was expected.
-e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/viewmodels/ViewModels.kt:186:19 Cannot infer type for this parameter. Please specify it explicitly.
+e: The daemon has terminated unexpectedly on startup attempt #1 with error code: 0. The daemon process output:
+e: file:///home/runner/work/rk-jewellery/rk-jewellery/app/src/main/java/com/rkjewellery/app/ui/screens/khata/MemberDetailScreen.kt:33:50 No value passed for parameter 'initial'.
 FAILURE: Build failed with an exception.
 * What went wrong:
 Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
@@ -61,5 +42,5 @@ Caused by: org.jetbrains.kotlin.gradle.tasks.CompilationErrorException: Compilat
 	... 2 more
 
 
-BUILD FAILED in 1m 32s
+BUILD FAILED in 27s
 30 actionable tasks: 30 executed
